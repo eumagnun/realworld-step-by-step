@@ -74,7 +74,10 @@ https://dba.stackexchange.com/questions/131129/psql-fatal-peer-authentication-fa
 ls /etc/postgresql
 sudo vim /etc/postgresql/9.1/main/pg_hba.conf
 ```
-
+7. restart postgress
+```
+sudo service postgresql restart
+```
 ## Extra: 
 1. CloudRouter vai ser necessário
 2. Máquina do backend vai precisar de wget: sudo apt install wget
