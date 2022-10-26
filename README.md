@@ -72,8 +72,8 @@ https://dba.stackexchange.com/questions/131129/psql-fatal-peer-authentication-fa
 6. achar arquivo pg_hba.conf
 ```
 ls /etc/postgresql
-sudo nano /etc/postgresql/9.1/main/pg_hba.conf
-sudo nano /etc/postgresql/9.1/main/postgresql.conf
+sudo nano /etc/postgresql/13/main/pg_hba.conf
+sudo nano /etc/postgresql/13/main/postgresql.conf
 ```
 
 ```
