@@ -94,7 +94,7 @@ host    replication     all             ::1/128                 md5
 9. n/a
 10. restart postgress
 ```
-sudo service postgresql restart
+sudo systemctl restart postgresql.service
 ```
 
 11. conectar no banco: sudo -u postgres  psql -d appdb
