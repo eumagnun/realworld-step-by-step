@@ -12,11 +12,27 @@ IDE
 5. Baixar gradle: $ wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
 6. Descompactar gradle: sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
 7. Setup variaveis gradle: sudo nano /etc/profile.d/gradle.sh
-7.1. export GRADLE_HOME=/opt/gradle/gradle-7.4.2
-7.2. export PATH=${GRADLE_HOME}/bin:${PATH}
+```
+export GRADLE_HOME=/opt/gradle/gradle-7.4.2
+export PATH=${GRADLE_HOME}/bin:${PATH}
+```
 8. Trocar permissão do arquivo: sudo chmod +x /etc/profile.d/gradle.sh
 9. Instalar Gradle: source /etc/profile.d/gradle.sh
 10. testar Gradle: gradle --version
+11. Configurar postgress:
+```
+spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.hibernate.show-sql=true
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=admin
+spring.datasource.initialization-mode=always
+spring.datasource.initialize=true
+spring.datasource.schema=classpath:/schema.sql
+spring.datasource.continue-on-error=true
+```
+
 
 
 
@@ -36,29 +52,28 @@ IDE
 
 
 ## Database:
-
-https://wiki.postgresql.org/wiki/Apt#Quickstart
-default port:5432
-restart: sudo systemctl restart postgresql.service
-11. spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
-spring.jpa.hibernate.ddl-auto=none
-spring.jpa.hibernate.show-sql=true
-spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
-spring.datasource.username=postgres
-spring.datasource.password=admin
-
-
-spring.datasource.initialization-mode=always
-spring.datasource.initialize=true
-spring.datasource.schema=classpath:/schema.sql
-spring.datasource.continue-on-error=true
-
+1. Instalar Postgres: https://wiki.postgresql.org/wiki/Apt#Quickstart
+2. Porta padrão: port:5432
+3. Criar banco e usuario
+```
 sudo -u postgres psql
 postgres=# create database mydb;
 postgres=# create user myuser with encrypted password 'mypass';
 postgres=# grant all privileges on database mydb to myuser;
-
+```
+4. Reiniciar banco:
+```
+restart: sudo systemctl restart postgresql.service
+```
+5. Problemas de autenticação:
+```
 https://dba.stackexchange.com/questions/131129/psql-fatal-peer-authentication-failed-for-user
+```
+6. achar arquivo pg_hba.conf
+```
+ls /etc/postgresql
+sudo vim /etc/postgresql/9.1/main/pg_hba.conf
+```
 
 ## Extra: 
 1. CloudRouter vai ser necessário
