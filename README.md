@@ -32,7 +32,7 @@ spring.datasource.driverClassName=org.postgresql.Driver
 spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=create-drop
 
-security.allowedOrigins=http://localhost,http://localhost:80, http://34.95.209.220
+security.allowedOrigins=http://localhost,http://localhost:80, http://IP_DE_ONDE_FRONT_ESTA_RODANDO
 ```
 
 12. incluir dependencia no build.gradle: runtimeOnly 'org.postgresql:postgresql'
