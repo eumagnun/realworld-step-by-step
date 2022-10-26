@@ -54,7 +54,7 @@ security.allowedOrigins=http://localhost,http://localhost:80, http://34.95.209.2
 10. Em environment.ts definir a url da API
 11. sudo ng --version
 12. yarn install
-13. rodar app: ng serve --host 0.0.0.0 --port 80
+13. rodar app: sudo ng serve --host 0.0.0.0 --port 80
 
 
 
