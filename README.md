@@ -32,14 +32,33 @@ IDE
 8. sudo npm install -g @angular/cli
 9. sudo ng --version
 10. yarn install
-11. 
+
 
 
 ## Database:
 
 https://wiki.postgresql.org/wiki/Apt#Quickstart
 default port:5432
-default
+restart: sudo systemctl restart postgresql.service
+11. spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.hibernate.ddl-auto=none
+spring.jpa.hibernate.show-sql=true
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=admin
+
+
+spring.datasource.initialization-mode=always
+spring.datasource.initialize=true
+spring.datasource.schema=classpath:/schema.sql
+spring.datasource.continue-on-error=true
+
+sudo -u postgres psql
+postgres=# create database mydb;
+postgres=# create user myuser with encrypted password 'mypass';
+postgres=# grant all privileges on database mydb to myuser;
+
+https://dba.stackexchange.com/questions/131129/psql-fatal-peer-authentication-failed-for-user
 
 ## Extra: 
 1. CloudRouter vai ser necessário
