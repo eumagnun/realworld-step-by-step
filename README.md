@@ -64,3 +64,4 @@ https://dba.stackexchange.com/questions/131129/psql-fatal-peer-authentication-fa
 1. CloudRouter vai ser necessário
 2. Máquina do backend vai precisar de wget: sudo apt install wget
 3. Máquina do backend vai precisar de unzip: sudo ap install unzip
+4. Rodar processo em background: https://udgwebdev.github.io/dicas-de-terminal-processos-em-background/
