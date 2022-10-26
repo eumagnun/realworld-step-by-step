@@ -116,3 +116,4 @@ sudo systemctl restart postgresql.service
 2. Máquina do backend vai precisar de wget: sudo apt install wget
 3. Máquina do backend vai precisar de unzip: sudo ap install unzip
 4. Rodar processo em background: https://udgwebdev.github.io/dicas-de-terminal-processos-em-background/
+5. listar usuarios linux: less /etc/passwd
