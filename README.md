@@ -14,3 +14,10 @@ No backend
 No frontend
 1. Em environment.ts definir a url da API
 2. Para o build instalar Node, AngularCli, Yarn
+
+
+Database:
+
+https://wiki.postgresql.org/wiki/Apt#Quickstart
+default port:5432
+default
