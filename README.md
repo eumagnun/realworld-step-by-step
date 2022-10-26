@@ -61,14 +61,9 @@ security.allowedOrigins=http://localhost,http://localhost:80, http://34.95.209.2
 ## Database:
 1. Instalar Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
 2. Porta padrão: port:5432
-3. Usuario usuário postgres
-```
-sudo -u postgres psql
-postgres=# create database mydb;
-postgres=# create user myuser with encrypted password 'mypass';
-postgres=# grant all privileges on database mydb to myuser;
-```
-4. Reiniciar banco:
+3. locagr com usuario postgres: sudo -u postgres psql
+4. cadastrar senha: password
+5. Reiniciar banco:
 ```
 restart: sudo systemctl restart postgresql.service
 ```
@@ -82,7 +77,15 @@ ls /etc/postgresql
 sudo nano /etc/postgresql/13/main/pg_hba.conf
 
 ```
-
+7. caso queira cadastrar novo usuário:
+```
+```
+sudo -u postgres psql
+postgres=# create database mydb;
+postgres=# create user myuser with encrypted password 'mypass';
+postgres=# grant all privileges on database mydb to myuser;
+```
+```
 ```
 # TYPE  DATABASE        USER            ADDRESS                 METHOD
 
