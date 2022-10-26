@@ -24,6 +24,15 @@ IDE
 ## No frontend
 1. Em environment.ts definir a url da API
 2. Para o build instalar Node, AngularCli, Yarn
+3. curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+4. sudo apt install nodejs
+5. node --version
+6. npm --version
+7. sudo npm install --global yarn
+8. sudo npm install -g @angular/cli
+9. sudo ng --version
+10. yarn install
+11. 
 
 
 ## Database:
