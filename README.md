@@ -5,9 +5,21 @@ IDE
 2. Apertar Ctrl, Ctrl e gradle bootRun
 
 ## No backend
-1. Habilitar na classe SecurityConfiguration o método OPTIONS
-2. Em application.properties habilitar a origem devida.Ex: http://localhost:56729
-3. Em application.properties configurar o banco de dados
+
+1. instalar java: sudo apt install default-jdk -y
+2. Baixar gradle: $ wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
+3. Descompactar gradle: sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
+4. Setup variaveis gradle: sudo nano /etc/profile.d/gradle.sh e incluir o conteúdo abaixo
+```
+export GRADLE_HOME=/opt/gradle/gradle-7.4.2
+export PATH=${GRADLE_HOME}/bin:${PATH}
+```
+5. Trocar permissão do arquivo: sudo chmod +x /etc/profile.d/gradle.sh
+6. Instalar Gradle: source /etc/profile.d/gradle.sh
+7. testar Gradle: gradle --version
+8. Habilitar na classe SecurityConfiguration o método OPTIONS
+9. Em application.properties habilitar a origem devida.Ex: http://localhost:56729
+10. Em application.properties configurar o banco de dados
 ```
 spring.datasource.url=jdbc:postgresql://10.0.0.5:5432/postgres
 spring.datasource.username=postgres
@@ -18,19 +30,6 @@ spring.jpa.hibernate.ddl-auto=create-drop
 
 security.allowedOrigins=http://localhost,http://localhost:80, http://34.95.209.220
 ```
-
-
-4. instalar java: sudo apt install default-jdk -y
-5. Baixar gradle: $ wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
-6. Descompactar gradle: sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
-7. Setup variaveis gradle: sudo nano /etc/profile.d/gradle.sh e incluir o conteúdo abaixo
-```
-export GRADLE_HOME=/opt/gradle/gradle-7.4.2
-export PATH=${GRADLE_HOME}/bin:${PATH}
-```
-8. Trocar permissão do arquivo: sudo chmod +x /etc/profile.d/gradle.sh
-9. Instalar Gradle: source /etc/profile.d/gradle.sh
-10. testar Gradle: gradle --version
 
 
 ## No frontend
