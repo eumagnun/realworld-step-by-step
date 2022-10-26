@@ -7,9 +7,12 @@ IDE
 ## No backend
 
 1. instalar java: sudo apt install default-jdk -y
-2. Baixar gradle: $ wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
-3. Descompactar gradle: sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
-4. Setup variaveis gradle: sudo nano /etc/profile.d/gradle.sh e incluir o conteúdo abaixo
+2. instalar wget: sudo apt install wget -y
+3. instalar unzip: sudo apt install unzip -y
+4. instalar git: sudo apt install git -y
+5. Baixar gradle: $ wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
+6. Descompactar gradle: sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
+7. Setup variaveis gradle: sudo nano /etc/profile.d/gradle.sh e incluir o conteúdo abaixo
 ```
 export GRADLE_HOME=/opt/gradle/gradle-7.4.2
 export PATH=${GRADLE_HOME}/bin:${PATH}
@@ -17,9 +20,10 @@ export PATH=${GRADLE_HOME}/bin:${PATH}
 5. Trocar permissão do arquivo: sudo chmod +x /etc/profile.d/gradle.sh
 6. Instalar Gradle: source /etc/profile.d/gradle.sh
 7. testar Gradle: gradle --version
-8. Habilitar na classe SecurityConfiguration o método OPTIONS
-9. Em application.properties habilitar a origem devida.Ex: http://localhost:56729
-10. Em application.properties configurar o banco de dados
+8. clonar projeto:git clone https://github.com/eumagnun/realworld-springboot-java.git
+9. Habilitar na classe SecurityConfiguration o método OPTIONS: 
+10. Em application.properties habilitar a origem devida.Ex: http://localhost:56729
+11. Em application.properties configurar o banco de dados
 ```
 spring.datasource.url=jdbc:postgresql://10.0.0.5:5432/postgres
 spring.datasource.username=postgres
@@ -31,18 +35,26 @@ spring.jpa.hibernate.ddl-auto=create-drop
 security.allowedOrigins=http://localhost,http://localhost:80, http://34.95.209.220
 ```
 
+12. incluir dependencia no build.gradle: runtimeOnly 'org.postgresql:postgresql'
+13. rodar
+```
+./gradlew build -x test bootRun
+```
 
 ## No frontend
-1. Em environment.ts definir a url da API
+
 2. Para o build instalar Node, AngularCli, Yarn
 3. curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-4. sudo apt install nodejs
+4. sudo apt install nodejs -y
 5. node --version
 6. npm --version
 7. sudo npm install --global yarn
 8. sudo npm install -g @angular/cli
-9. sudo ng --version
-10. yarn install
+9. clonar projeto: git clone https://github.com/eumagnun/angular-realworld-example-app.git
+10. Em environment.ts definir a url da API
+11. sudo ng --version
+12. yarn install
+13. rodar app: ng serve --host 0.0.0.0 --port 80
 
 
 
