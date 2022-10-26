@@ -52,7 +52,7 @@ spring.datasource.continue-on-error=true
 
 
 ## Database:
-1. Instalar Postgres: https://wiki.postgresql.org/wiki/Apt#Quickstart
+1. Instalar Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
 2. Porta padrão: port:5432
 3. Criar banco e usuario
 ```
@@ -78,6 +78,10 @@ sudo vim /etc/postgresql/9.1/main/pg_hba.conf
 ```
 sudo service postgresql restart
 ```
+
+8. conectar no banco: sudo -u appuser  psql -d appdb
+9. info sobre a sessão atual no postgres: \conninfo
+
 ## Extra: 
 1. CloudRouter vai ser necessário
 2. Máquina do backend vai precisar de wget: sudo apt install wget
