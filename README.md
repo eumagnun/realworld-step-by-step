@@ -8,10 +8,22 @@ IDE
 1. Habilitar na classe SecurityConfiguration o método OPTIONS
 2. Em application.properties habilitar a origem devida.Ex: http://localhost:56729
 3. Em application.properties configurar o banco de dados
+```
+spring.datasource.url=jdbc:postgresql://10.0.0.5:5432/postgres
+spring.datasource.username=postgres
+spring.datasource.password=12345
+spring.datasource.driverClassName=org.postgresql.Driver
+spring.jpa.show-sql=true
+spring.jpa.hibernate.ddl-auto=create-drop
+
+security.allowedOrigins=http://localhost,http://localhost:80, http://34.95.209.220
+```
+
+
 4. instalar java: sudo apt install default-jdk -y
 5. Baixar gradle: $ wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
 6. Descompactar gradle: sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
-7. Setup variaveis gradle: sudo nano /etc/profile.d/gradle.sh
+7. Setup variaveis gradle: sudo nano /etc/profile.d/gradle.sh e incluir o conteúdo abaixo
 ```
 export GRADLE_HOME=/opt/gradle/gradle-7.4.2
 export PATH=${GRADLE_HOME}/bin:${PATH}
@@ -19,22 +31,6 @@ export PATH=${GRADLE_HOME}/bin:${PATH}
 8. Trocar permissão do arquivo: sudo chmod +x /etc/profile.d/gradle.sh
 9. Instalar Gradle: source /etc/profile.d/gradle.sh
 10. testar Gradle: gradle --version
-11. Configurar postgress:
-```
-spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.PostgreSQLDialect
-spring.jpa.hibernate.ddl-auto=none
-spring.jpa.hibernate.show-sql=true
-spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
-spring.datasource.username=postgres
-spring.datasource.password=admin
-spring.datasource.initialization-mode=always
-spring.datasource.initialize=true
-spring.datasource.schema=classpath:/schema.sql
-spring.datasource.continue-on-error=true
-```
-
-
-
 
 
 ## No frontend
@@ -54,7 +50,7 @@ spring.datasource.continue-on-error=true
 ## Database:
 1. Instalar Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
 2. Porta padrão: port:5432
-3. Criar banco e usuario
+3. Usuario usuário postgres
 ```
 sudo -u postgres psql
 postgres=# create database mydb;
@@ -73,7 +69,7 @@ https://dba.stackexchange.com/questions/131129/psql-fatal-peer-authentication-fa
 ```
 ls /etc/postgresql
 sudo nano /etc/postgresql/13/main/pg_hba.conf
-sudo nano /etc/postgresql/13/main/postgresql.conf
+
 ```
 
 ```
@@ -92,13 +88,17 @@ local   replication     all                                     peer
 host    replication     all             127.0.0.1/32            md5
 host    replication     all             ::1/128                 md5
 ```
-7. restart postgress
+
+7. habilitar origens de conexão do postgres: sudo nano /etc/postgresql/13/main/postgresql.conf
+8. n/a
+9. n/a
+10. restart postgress
 ```
 sudo service postgresql restart
 ```
 
-8. conectar no banco: sudo -u appuser  psql -d appdb
-9. info sobre a sessão atual no postgres: \conninfo
+11. conectar no banco: sudo -u postgres  psql -d appdb
+10. info sobre a sessão atual no postgres: \conninfo
 
 ## Extra: 
 1. CloudRouter vai ser necessário
