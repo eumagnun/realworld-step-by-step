@@ -1,29 +1,29 @@
 # realworld-notes
 
 IDE
-1. Tudo funciona mais facil com o IntelliJ
-2. Apertar Ctrl, Ctrl e gradle bootRun
+* Tudo funciona mais facil com o IntelliJ
+* Apertar Ctrl, Ctrl e gradle bootRun
 
 ## No backend
 
-1. instalar java: sudo apt install default-jdk -y
-2. instalar wget: sudo apt install wget -y
-3. instalar unzip: sudo apt install unzip -y
-4. instalar git: sudo apt install git -y
-5. Baixar gradle: $ wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
-6. Descompactar gradle: sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
-7. Setup variaveis gradle: sudo nano /etc/profile.d/gradle.sh e incluir o conteúdo abaixo
+* instalar java: sudo apt install default-jdk -y
+* instalar wget: sudo apt install wget -y
+* instalar unzip: sudo apt install unzip -y
+* instalar git: sudo apt install git -y
+* Baixar gradle: $ wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
+* Descompactar gradle: sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
+* Setup variaveis gradle: sudo nano /etc/profile.d/gradle.sh e incluir o conteúdo abaixo
 ```
 export GRADLE_HOME=/opt/gradle/gradle-7.4.2
 export PATH=${GRADLE_HOME}/bin:${PATH}
 ```
-5. Trocar permissão do arquivo: sudo chmod +x /etc/profile.d/gradle.sh
-6. Instalar Gradle: source /etc/profile.d/gradle.sh
-7. testar Gradle: gradle --version
-8. clonar projeto:git clone https://github.com/eumagnun/realworld-springboot-java.git
-9. Habilitar na classe SecurityConfiguration o método OPTIONS: 
-10. Em application.properties habilitar a origem devida.Ex: http://localhost:56729
-11. Em application.properties configurar o banco de dados
+* Trocar permissão do arquivo: sudo chmod +x /etc/profile.d/gradle.sh
+* Instalar Gradle: source /etc/profile.d/gradle.sh
+* testar Gradle: gradle --version
+* clonar projeto:git clone https://github.com/eumagnun/realworld-springboot-java.git
+* Habilitar na classe SecurityConfiguration o método OPTIONS: 
+* Em application.properties habilitar a origem devida.Ex: http://localhost:56729
+* Em application.properties configurar o banco de dados
 ```
 spring.datasource.url=jdbc:postgresql://10.0.0.5:5432/postgres
 spring.datasource.username=postgres
@@ -35,57 +35,56 @@ spring.jpa.hibernate.ddl-auto=create-drop
 security.allowedOrigins=http://localhost,http://localhost:80, http://IP_DE_ONDE_FRONT_ESTA_RODANDO
 ```
 
-12. incluir dependencia no build.gradle: runtimeOnly 'org.postgresql:postgresql'
-13. rodar
+* incluir dependencia no build.gradle: runtimeOnly 'org.postgresql:postgresql'
+* rodar
 ```
 ./gradlew build -x test bootRun
 ```
 
-14. Gerar build -> ./gradlew build -x test
-15. local arquivos build -> /realworld-springboot-java/build/libs
-16. executar -> java -jar XXXXX.jarsudo
+* Gerar build -> ./gradlew build -x test
+* local arquivos build -> /realworld-springboot-java/build/libs
+* executar -> java -jar XXXXX.jarsudo
 
 ## No frontend
 
-2. Para o build instalar Node, AngularCli, Yarn
-3. curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-4. sudo apt install nodejs -y
-5. node --version
-6. npm --version
-7. sudo npm install --global yarn
-8. sudo npm install -g @angular/cli
-9. clonar projeto: git clone https://github.com/eumagnun/angular-realworld-example-app.git
-10. Em environment.ts definir a url da API
-11. sudo ng --version
-12. yarn install
-13. rodar app: sudo ng serve --host 0.0.0.0 --port 80
-
-14. instalar ngynx ->  sudo apt install nginx -y
-15. validar se está rodando -> systemctl status nginx
-16. build frontend -> sudo ng build --configuration production
-17. clear frontend -> sudo rm -r /var/www/html/
-18. deploy frontend -> sudo cp -r  angular-realworld-example-app/dist/ /var/www/html/
+* Para o build instalar Node, AngularCli, Yarn
+* curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+* sudo apt install nodejs -y
+* node --version
+* npm --version
+* sudo npm install --global yarn
+* sudo npm install -g @angular/cli
+* clonar projeto: git clone https://github.com/eumagnun/angular-realworld-example-app.git
+* Em environment.ts definir a url da API
+* sudo ng --version
+* yarn install
+* rodar app: sudo ng serve --host 0.0.0.0 --port 80
+* instalar ngynx ->  sudo apt install nginx -y
+* validar se está rodando -> systemctl status nginx
+* build frontend -> sudo ng build --configuration production
+* clear frontend -> sudo rm -r /var/www/html/
+* deploy frontend -> sudo cp -r  angular-realworld-example-app/dist/ /var/www/html/
 
 ## Database:
-1. Instalar Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
-2. Porta padrão: port:5432
-3. locagr com usuario postgres: sudo -u postgres psql
-4. cadastrar senha: password
-5. Reiniciar banco:
+* Instalar Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
+* Porta padrão: port:5432
+* locagr com usuario postgres: sudo -u postgres psql
+* cadastrar senha: password
+* Reiniciar banco:
 ```
 restart: sudo systemctl restart postgresql.service
 ```
-5. Problemas de autenticação:
+* Problemas de autenticação:
 ```
 https://dba.stackexchange.com/questions/131129/psql-fatal-peer-authentication-failed-for-user
 ```
-6. achar arquivo pg_hba.conf
+* achar arquivo pg_hba.conf
 ```
 ls /etc/postgresql
 sudo nano /etc/postgresql/13/main/pg_hba.conf
 
 ```
-7. caso queira cadastrar novo usuário:
+* caso queira cadastrar novo usuário:
 ```
 ```
 sudo -u postgres psql
@@ -111,23 +110,21 @@ host    replication     all             127.0.0.1/32            md5
 host    replication     all             ::1/128                 md5
 ```
 
-7. habilitar origens de conexão do postgres: sudo nano /etc/postgresql/13/main/postgresql.conf
-8. n/a
-9. n/a
-10. restart postgress
+* habilitar origens de conexão do postgres: sudo nano /etc/postgresql/13/main/postgresql.conf
+* restart postgress
 ```
 sudo systemctl restart postgresql.service
 ```
 
-11. conectar no banco: sudo -u postgres  psql -d appdb
-10. info sobre a sessão atual no postgres: \conninfo
+* conectar no banco: sudo -u postgres  psql -d appdb
+* info sobre a sessão atual no postgres: \conninfo
 
 ## Extra: 
-1. CloudRouter vai ser necessário
-2. Máquina do backend vai precisar de wget: sudo apt install wget
-3. Máquina do backend vai precisar de unzip: sudo ap install unzip
-4. Rodar processo em background: https://udgwebdev.github.io/dicas-de-terminal-processos-em-background/
-5. listar usuarios linux: less /etc/passwd
+* CloudRouter vai ser necessário
+* Máquina do backend vai precisar de wget: sudo apt install wget
+* Máquina do backend vai precisar de unzip: sudo ap install unzip
+* Rodar processo em background: https://udgwebdev.github.io/dicas-de-terminal-processos-em-background/
+* Listar usuarios linux: less /etc/passwd
 
 
 
