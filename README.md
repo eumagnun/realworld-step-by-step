@@ -131,7 +131,7 @@ sudo systemctl restart postgresql.service
 
 
 
-##Migration steps
+## Migration steps
 * Usuário com acesso a infra criada
 * criar vpc
 * criar firewall
