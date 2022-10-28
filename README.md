@@ -128,3 +128,18 @@ sudo systemctl restart postgresql.service
 3. Máquina do backend vai precisar de unzip: sudo ap install unzip
 4. Rodar processo em background: https://udgwebdev.github.io/dicas-de-terminal-processos-em-background/
 5. listar usuarios linux: less /etc/passwd
+
+
+
+##Migration steps
+* Usuário com acesso a infra criada
+* criar vpc
+* criar firewall
+* criar bucket em modo server
+* criar server
+* criar cloudsql
+* criar vpn
+* testar conectividade entre recursos
+* migrar frontend e testar
+* migrar backend com migrate for vm e testar
+* migrar database com serviço de migração e testar
