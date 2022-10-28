@@ -56,7 +56,10 @@ security.allowedOrigins=http://localhost,http://localhost:80, http://IP_DE_ONDE_
 12. yarn install
 13. rodar app: sudo ng serve --host 0.0.0.0 --port 80
 
-
+14. instalar ngynx ->  sudo apt install nginx -y
+15. validar se está rodando -> systemctl status nginx
+16. build frontend -> sudo ng build --configuration production
+16. deploy frontend -> sudo cp -r  angular-realworld-example-app/dist/ /var/www/html/
 
 ## Database:
 1. Instalar Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
