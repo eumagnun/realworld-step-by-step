@@ -41,6 +41,10 @@ security.allowedOrigins=http://localhost,http://localhost:80, http://IP_DE_ONDE_
 ./gradlew build -x test bootRun
 ```
 
+14. Gerar build -> ./gradlew build -x test
+15. local arquivos build -> /realworld-springboot-java/build/libs
+16. executar -> java -jar XXXXX.jarsudo
+
 ## No frontend
 
 2. Para o build instalar Node, AngularCli, Yarn
@@ -59,7 +63,8 @@ security.allowedOrigins=http://localhost,http://localhost:80, http://IP_DE_ONDE_
 14. instalar ngynx ->  sudo apt install nginx -y
 15. validar se está rodando -> systemctl status nginx
 16. build frontend -> sudo ng build --configuration production
-16. deploy frontend -> sudo cp -r  angular-realworld-example-app/dist/ /var/www/html/
+17. clear frontend -> sudo rm -r /var/www/html/
+18. deploy frontend -> sudo cp -r  angular-realworld-example-app/dist/ /var/www/html/
 
 ## Database:
 1. Instalar Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
