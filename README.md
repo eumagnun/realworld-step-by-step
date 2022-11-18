@@ -21,7 +21,6 @@ export PATH=${GRADLE_HOME}/bin:${PATH}
 * Instalar Gradle: source /etc/profile.d/gradle.sh
 * testar Gradle: gradle --version
 * clonar projeto:git clone https://github.com/eumagnun/realworld-springboot-java.git
-* Habilitar na classe SecurityConfiguration o método OPTIONS: 
 * Em application.properties habilitar a origem devida.Ex: http://localhost:56729
 * Em application.properties configurar o banco de dados
 * Dar replace nos placeholders abaixo:
