@@ -24,15 +24,17 @@ export PATH=${GRADLE_HOME}/bin:${PATH}
 * Habilitar na classe SecurityConfiguration o método OPTIONS: 
 * Em application.properties habilitar a origem devida.Ex: http://localhost:56729
 * Em application.properties configurar o banco de dados
+* Dar replace nos placeholders abaixo:
 ```
-spring.datasource.url=jdbc:postgresql://10.0.0.5:5432/postgres
-spring.datasource.username=postgres
-spring.datasource.password=12345
+
+spring.datasource.url=jdbc:postgresql://"DATABASE_IP:DATABASE_PORT/postgres
+spring.datasource.username=DATABASE_USERNAME
+spring.datasource.password=DATABASE_PASSWORD
 spring.datasource.driverClassName=org.postgresql.Driver
 spring.jpa.show-sql=true
 spring.jpa.hibernate.ddl-auto=create-drop
 
-security.allowedOrigins=http://localhost,http://localhost:80, http://IP_DE_ONDE_FRONT_ESTA_RODANDO
+security.allowedOrigins=http://localhost,http://localhost:80, http://FRONTEND_IP
 ```
 
 * incluir dependencia no build.gradle: runtimeOnly 'org.postgresql:postgresql'
@@ -55,7 +57,7 @@ security.allowedOrigins=http://localhost,http://localhost:80, http://IP_DE_ONDE_
 * sudo npm install --global yarn
 * sudo npm install -g @angular/cli
 * clonar projeto: git clone https://github.com/eumagnun/angular-realworld-example-app.git
-* Em environment.ts definir a url da API
+* Em environment.ts definir a url da API[REPLACE BACKEND_API_ENDPOINT_AND_PORT]
 * sudo ng --version
 * yarn install
 * rodar app: sudo ng serve --host 0.0.0.0 --port 80
