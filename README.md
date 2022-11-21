@@ -5,6 +5,7 @@ IDE
 * Apertar Ctrl, Ctrl e gradle bootRun
 
 ## No backend
+* startup script vm backend: sudo apt install default-jre -y
 
 * instalar java: sudo apt install default-jdk -y
 * instalar wget: sudo apt install wget -y
