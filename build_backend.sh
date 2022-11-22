@@ -9,6 +9,12 @@ git clone https://github.com/eumagnun/realworld-springboot-java.git
 echo "::::::::changing current dir"
 cd realworld-springboot-java
 
+echo ":::::::: getting frontend public ip"
+IP_FRONTEND=$(gcloud compute instances describe backend-vm --zone='southamerica-east1-a'  --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
+
+echo ":::::::: replacing frontend ip"
+sed -i "s|REPLACE_FRONTEND_IP|"${IP_FRONTEND}"|g" src/main/resources/application.properties
+
 echo "::::::::building project"
 ./gradlew build -x test
 
