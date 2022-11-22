@@ -69,15 +69,34 @@ sudo systemctl status postgresql.service
 ````
 sudo -u postgres psql
 ````
-* #listar bancos
-```
-\l
-```
 
 * #change password after logged in:
 ```
 ALTER USER postgres PASSWORD 'postgres'
 ```
+
+* #listar bancos
+```
+\l
+```
+* conectar em um banco de dados
+````
+\c postgres
+````
+
+* listar tabelas
+````
+select * from information_schema.tables
+
+````
+
+* listar artigos cadastrados
+````
+select * from articles
+
+````
+
+
 
 * caso necessário: remover postgresql
 * https://kb.objectrocket.com/postgresql/how-to-completely-uninstall-postgresql-757
