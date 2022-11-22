@@ -21,22 +21,35 @@ IDE
 ## Máquina Database:
 * Instalar Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
 * Porta padrão: port:5432
-* sudo apt update
 
-* sudo apt install postgresql postgresql-contrib -y
+* Instalar Postgresql
+````
+sudo apt update
+sudo apt install postgresql postgresql-contrib -y
+````
+* Iniciar serviço
+````
+sudo systemctl start postgresql.service
+````
 
-* sudo systemctl start postgresql.service
-
-* sudo -u postgres createdb applicationdb
-
+* criar database
+````
+sudo -u postgres createdb applicationdb
+````
 * #edit files bellow to enable external connectivity
 
-* #file: sudo nano /etc/postgresql/13/main/postgresql.conf
+* #file 1: 
+````
+sudo nano /etc/postgresql/13/main/postgresql.conf
+````
 ````
 listen_addresses = '*'
 ````
 
-* #file: sudo nano /etc/postgresql/13/main/pg_hba.conf
+* #file 2: 
+````
+sudo nano /etc/postgresql/13/main/pg_hba.conf
+````
 ````
 # IPv4 local connections:
 host    all           	all        	0.0.0.0/0            	md5
@@ -53,8 +66,9 @@ sudo systemctl status postgresql.service
 ````
 
 * #logar postgress
-* sudo -u postgres psql
-
+````
+sudo -u postgres psql
+````
 * #listar bancos
 ```
 \l
