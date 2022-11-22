@@ -4,50 +4,18 @@ IDE
 * Tudo funciona mais facil com o IntelliJ
 * Apertar Ctrl, Ctrl e gradle bootRun
 
-## No backend
-* startup script vm backend: sudo apt install default-jre -y
+## Máquina de build
+### Requisitos build backend
+* executar script mount_backend_build_env.sh após criação da máquina
 
-* instalar java: sudo apt install default-jdk -y
-* instalar wget: sudo apt install wget -y
-* instalar unzip: sudo apt install unzip -y
-* instalar git: sudo apt install git -y
-* Baixar gradle: $ wget -c https://services.gradle.org/distributions/gradle-7.4.2-bin.zip -P /tmp
-* Descompactar gradle: sudo unzip -d /opt/gradle /tmp/gradle-7.4.2-bin.zip
-* Setup variaveis gradle: sudo nano /etc/profile.d/gradle.sh e incluir o conteúdo abaixo
-```
-export GRADLE_HOME=/opt/gradle/gradle-7.4.2
-export PATH=${GRADLE_HOME}/bin:${PATH}
-```
-* Trocar permissão do arquivo: sudo chmod +x /etc/profile.d/gradle.sh
-* Instalar Gradle: source /etc/profile.d/gradle.sh
-* testar Gradle: gradle --version
-* clonar projeto:git clone https://github.com/eumagnun/realworld-springboot-java.git
-* Em application.properties habilitar a origem devida.Ex: http://localhost:56729
-* Em application.properties configurar o banco de dados
-* Dar replace nos placeholders abaixo:
-```
+### Requisitos build frontend
 
-spring.datasource.url=jdbc:postgresql://"DATABASE_IP:DATABASE_PORT/postgres
-spring.datasource.username=DATABASE_USERNAME
-spring.datasource.password=DATABASE_PASSWORD
-spring.datasource.driverClassName=org.postgresql.Driver
-spring.jpa.show-sql=true
-spring.jpa.hibernate.ddl-auto=create-drop
+## Máquina execução backend
+* instalar JRE: sudo apt install default-jre -y
+* baixar e configurar propriedades do back de acordo com o ambiente: https://github.com/eumagnun/realworld-notes/blob/main/application.properties
 
-security.allowedOrigins=http://localhost,http://localhost:80, http://FRONTEND_IP
-```
 
-* incluir dependencia no build.gradle: runtimeOnly 'org.postgresql:postgresql'
-* rodar
-```
-./gradlew build -x test bootRun
-```
-
-* Gerar build -> ./gradlew build -x test
-* local arquivos build -> /realworld-springboot-java/build/libs
-* executar -> java -jar XXXXX.jarsudo
-
-## No frontend
+## Máquina execução frontend
 
 * Para o build instalar Node, AngularCli, Yarn
 * curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
