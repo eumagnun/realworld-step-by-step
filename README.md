@@ -6,36 +6,19 @@ IDE
 
 ## Máquina de build
 ### Requisitos build backend
+* baixar e configurar propriedades do back de acordo com o ambiente: https://github.com/eumagnun/realworld-notes/blob/main/application.properties
 * executar script mount_backend_build_env.sh após criação da máquina
 
 ### Requisitos build frontend
+* executar script mount_frontend_build_env.sh após criação da máquina
 
 ## Máquina execução backend
-* instalar JRE: sudo apt install default-jre -y
-* baixar e configurar propriedades do back de acordo com o ambiente: https://github.com/eumagnun/realworld-notes/blob/main/application.properties
-
+* instalar JRE: sudo apt install default-jre -y após criação da máquina
 
 ## Máquina execução frontend
+* instalar ngynx: sudo apt install nginx -y após criação da máquina
 
-* Para o build instalar Node, AngularCli, Yarn
-* curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-* sudo apt install nodejs -y
-* node --version
-* npm --version
-* sudo npm install --global yarn
-* sudo npm install -g @angular/cli
-* clonar projeto: git clone https://github.com/eumagnun/angular-realworld-example-app.git
-* Em environment.ts definir a url da API[REPLACE BACKEND_API_ENDPOINT_AND_PORT]
-* sudo ng --version
-* yarn install
-* rodar app: sudo ng serve --host 0.0.0.0 --port 80
-* instalar ngynx ->  sudo apt install nginx -y
-* validar se está rodando -> systemctl status nginx
-* build frontend -> sudo ng build --configuration production
-* clear frontend -> sudo rm -r /var/www/html/
-* deploy frontend -> sudo cp -r  angular-realworld-example-app/dist/ /var/www/html/
-
-## Database:
+## Máquina Database:
 * Instalar Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
 * Porta padrão: port:5432
 * locagr com usuario postgres: sudo -u postgres psql
