@@ -72,6 +72,9 @@ sudo systemctl restart postgresql.service
 * conectar no banco: sudo -u postgres  psql -d appdb
 * info sobre a sessão atual no postgres: \conninfo
 
+* remover postgresql
+* https://kb.objectrocket.com/postgresql/how-to-completely-uninstall-postgresql-757
+
 ## Extra: 
 * CloudRouter vai ser necessário
 * Máquina do backend vai precisar de wget: sudo apt install wget
