@@ -32,26 +32,38 @@ IDE
 * #edit files bellow to enable external connectivity
 
 * #file: sudo nano /etc/postgresql/13/main/postgresql.conf
-* listen_addresses = '*'
+````
+listen_addresses = '*'
+````
 
 * #file: sudo nano /etc/postgresql/13/main/pg_hba.conf
-* # IPv4 local connections:
-* host    all           	all        	0.0.0.0/0            	md5
+````
+# IPv4 local connections:
+host    all           	all        	0.0.0.0/0            	md5
+````
 
 * #restart the database
-* sudo systemctl restart postgresql.service
+````
+sudo systemctl restart postgresql.service
+````
 
 * #consultar status
-* sudo systemctl status postgresql.service
+````
+sudo systemctl status postgresql.service
+````
 
 * #logar postgress
 * sudo -u postgres psql
 
 * #listar bancos
-* \l
+```
+\l
+```
 
 * #change password after logged in:
-* ALTER USER postgres PASSWORD 'postgres'
+```
+ALTER USER postgres PASSWORD 'postgres'
+```
 
 * caso necessário: remover postgresql
 * https://kb.objectrocket.com/postgresql/how-to-completely-uninstall-postgresql-757
