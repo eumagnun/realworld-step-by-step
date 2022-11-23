@@ -74,11 +74,14 @@ sudo systemctl status postgresql.service
 sudo -u postgres psql
 ````
 
-* #change password after logged in:
+* #change password [option1]:
 ```
 ALTER USER postgres PASSWORD 'postgres'
 ```
-
+* #change password [option2]:
+````
+\password postgres
+````
 * #listar bancos
 ```
 \l
