@@ -8,6 +8,9 @@ if [ "$1" = "" ] || [ "$2" = "" ] || [ "$3" = "" ];then
   exit 0
 fi
 
+echo "::::::::installing JRE"
+gcloud compute ssh backend-vm --zone=southamerica-east1-a --internal-ip --command "sudo apt install default-jre -y"
+
 echo "::::::::removing projects dir"
 sudo rm -R realworld-springboot-java
 
@@ -21,7 +24,7 @@ echo ":::::::: getting database internal ip"
 VAR_DATABASE_IP=$(gcloud compute instances describe database-vm --zone='southamerica-east1-a'  --format='get(networkInterfaces[0].accessConfigs[0].networkIP)')
 
 echo ":::::::: getting frontend public ip"
-VAR_FRONTEND_IP=$(gcloud compute instances describe backend-vm --zone='southamerica-east1-a'  --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
+VAR_FRONTEND_IP=$(gcloud compute instances describe frontend-vm --zone='southamerica-east1-a'  --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 
 echo ":::::::: replacing variables"
 sed -i "s|REPLACE_FRONTEND_IP|"${VAR_FRONTEND_IP}"|g" src/main/resources/application.properties
