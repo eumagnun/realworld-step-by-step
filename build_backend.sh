@@ -40,6 +40,9 @@ sed -i "s|REPLACE_DATABASE_PASSWORD|"${VAR_DATABASE_PASSWORD}"|g" src/main/resou
 echo "::::::::building project"
 ./gradlew build -x test
 
+echo ":::::::: create remote dir"
+gcloud compute ssh backend-vm --zone=southamerica-east1-a --internal-ip --command "sudo mkdir /home/backend-app ; sudo chmod 777 /home/backend-app"
+
 echo "::::::::copying builded files to remote server"
 gcloud compute scp build/libs/realworld-spring-boot-java-2.1.1.jar backend-vm:/home/backend-app/backend.jar --internal-ip --zone=southamerica-east1-a
 
