@@ -1,3 +1,6 @@
+echo ":::::::: installing nginx"
+gcloud compute ssh frontend-vm --zone=southamerica-east1-a --internal-ip --command "sudo apt install nginx -y"
+
 echo ":::::::: removing old repository"
 rm -R angular-realworld-example-app
 
