@@ -23,19 +23,15 @@ VAR_DATABASE_IP=$(gcloud compute instances describe database-vm --zone='southame
 echo ":::::::: getting frontend public ip"
 VAR_FRONTEND_IP=$(gcloud compute instances describe backend-vm --zone='southamerica-east1-a'  --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 
-echo ":::::::: replacing frontend ip"
+echo ":::::::: replacing variables"
 sed -i "s|REPLACE_FRONTEND_IP|"${VAR_FRONTEND_IP}"|g" src/main/resources/application.properties
 
-echo ":::::::: replacing database ip"
 sed -i "s|REPLACE_DATABASE_IP|"${VAR_DATABASE_IP}"|g" src/main/resources/application.properties
 
-echo ":::::::: replacing database ip"
 sed -i "s|REPLACE_DATABASE_NAME|"${VAR_DATABASE_NAME}"|g" src/main/resources/application.properties
 
-echo ":::::::: replacing database ip"
 sed -i "s|REPLACE_DATABASE_USER|"${VAR_DATABASE_USER}"|g" src/main/resources/application.properties
 
-echo ":::::::: replacing database ip"
 sed -i "s|REPLACE_DATABASE_PASSWORD|"${VAR_DATABASE_PASSWORD}"|g" src/main/resources/application.properties
 
 echo "::::::::building project"
