@@ -1,7 +1,7 @@
 #Database variables
-DATABASE_NAME=$1
-DATABASE_USER=$2
-DATABASE_PASSWORD=$3
+VAR_DATABASE_NAME=$1
+VAR_DATABASE_USER=$2
+VAR_DATABASE_PASSWORD=$3
 
 if [ "$1" = "" ] || [ "$2" = "" ] || [ "$3" = "" ];then
   echo "Please input DATABASE_NAME DATABASE_USER DATABASE_PASSWORD"
@@ -18,16 +18,25 @@ echo "::::::::changing current dir"
 cd realworld-springboot-java
 
 echo ":::::::: getting database internal ip"
-IP_DATABASE=$(gcloud compute instances describe database-vm --zone='southamerica-east1-a'  --format='get(networkInterfaces[0].accessConfigs[0].networkIP)')
+VAR_DATABASE_IP=$(gcloud compute instances describe database-vm --zone='southamerica-east1-a'  --format='get(networkInterfaces[0].accessConfigs[0].networkIP)')
 
 echo ":::::::: getting frontend public ip"
-IP_FRONTEND=$(gcloud compute instances describe backend-vm --zone='southamerica-east1-a'  --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
+VAR_FRONTEND_IP=$(gcloud compute instances describe backend-vm --zone='southamerica-east1-a'  --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
 
 echo ":::::::: replacing frontend ip"
-sed -i "s|REPLACE_FRONTEND_IP|"${IP_FRONTEND}"|g" src/main/resources/application.properties
+sed -i "s|REPLACE_FRONTEND_IP|"${VAR_FRONTEND_IP}"|g" src/main/resources/application.properties
 
 echo ":::::::: replacing database ip"
-sed -i "s|REPLACE_FRONTEND_IP|"${IP_FRONTEND}"|g" src/main/resources/application.properties
+sed -i "s|REPLACE_DATABASE_IP|"${VAR_DATABASE_IP}"|g" src/main/resources/application.properties
+
+echo ":::::::: replacing database ip"
+sed -i "s|REPLACE_DATABASE_NAME|"${VAR_DATABASE_NAME}"|g" src/main/resources/application.properties
+
+echo ":::::::: replacing database ip"
+sed -i "s|REPLACE_DATABASE_USER|"${VAR_DATABASE_USER}"|g" src/main/resources/application.properties
+
+echo ":::::::: replacing database ip"
+sed -i "s|REPLACE_DATABASE_PASSWORD|"${VAR_DATABASE_PASSWORD}"|g" src/main/resources/application.properties
 
 echo "::::::::building project"
 ./gradlew build -x test
