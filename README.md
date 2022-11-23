@@ -4,6 +4,8 @@ IDE
 * Tudo funciona mais facil com o IntelliJ
 * Apertar Ctrl, Ctrl e gradle bootRun
 
+#enable compute engine api
+
 ## Máquina de build
 ### Requisitos build backend
 * baixar e configurar propriedades do back de acordo com o ambiente: https://github.com/eumagnun/realworld-notes/blob/main/application.properties
