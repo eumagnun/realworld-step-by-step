@@ -1,6 +1,9 @@
 # CREATE ON PREMISES STEPS SEQUENCE
 * Create the infra with terraform scripts
-* Install the posrgresql database on database-vm
+````
+https://github.com/eumagnun/realworld-terraform-scripts
+````
+* Install the posrgresql database on database-vm following the step-by-step on this readme
 * clone this repo on build-vm (use this procedure https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 * execute the next steps as described bellow:
 
