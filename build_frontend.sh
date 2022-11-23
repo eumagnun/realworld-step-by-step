@@ -22,13 +22,13 @@ echo ":::::::: build frontend"
 sudo ng build --configuration production
 
 echo ":::::::: removing current frontend"
-gcloud compute ssh backend-vm --zone=southamerica-east1-a --internal-ip --command "sudo rm -r /var/www/html/ ; sudo mkdir /var/www/html/ ; sudo chmod 777 /var/www/html"
+gcloud compute ssh frontend-vm --zone=southamerica-east1-a --internal-ip --command "sudo rm -r /var/www/html/ ; sudo mkdir /var/www/html/ ; sudo chmod 777 /var/www/html"
 
 
 echo ":::::::: transferring builded frontend"
-gcloud compute scp --recurse dist/* backend-vm:/var/www/html/ --internal-ip --zone=southamerica-east1-a
+gcloud compute scp --recurse dist/* frontend-vm:/var/www/html/ --internal-ip --zone=southamerica-east1-a
 
 echo ":::::::: restarting ngynx"
-gcloud compute ssh backend-vm --zone=southamerica-east1-a --internal-ip --command "sudo systemctl status nginx"
+gcloud compute ssh frontend-vm --zone=southamerica-east1-a --internal-ip --command "sudo systemctl status nginx"
 
 
