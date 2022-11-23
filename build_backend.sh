@@ -21,7 +21,7 @@ echo "::::::::changing current dir"
 cd realworld-springboot-java
 
 echo ":::::::: getting database internal ip"
-VAR_DATABASE_IP=$(gcloud compute instances describe database-vm --zone='southamerica-east1-a'  --format='get(networkInterfaces[0].accessConfigs[0].networkIP)')
+VAR_DATABASE_IP=$(gcloud compute instances describe database-vm --zone='southamerica-east1-a'  --format='get(networkInterfaces[0].networkIP)')
 
 echo ":::::::: getting frontend public ip"
 VAR_FRONTEND_IP=$(gcloud compute instances describe frontend-vm --zone='southamerica-east1-a'  --format='get(networkInterfaces[0].accessConfigs[0].natIP)')
