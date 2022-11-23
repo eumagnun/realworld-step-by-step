@@ -1,10 +1,8 @@
-# realworld-notes
-
-IDE
-* Tudo funciona mais facil com o IntelliJ
-* Apertar Ctrl, Ctrl e gradle bootRun
-
-#enable compute engine api
+# CREATE ON PREMISES STEPS SEQUENCE
+* Create the infra with terraform scripts
+* Install the posrgresql database on database-vm
+* clone this repo on build-vm (use this procedure https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
+* execute the next steps as described bellow:
 
 ## Máquina de build
 ### Requisitos build backend
@@ -110,7 +108,9 @@ select * from articles
 * Rodar processo em background: https://udgwebdev.github.io/dicas-de-terminal-processos-em-background/
 * Listar usuarios linux: less /etc/passwd
 
-
+* NOTE IDE
+* Tudo funciona mais facil com o IntelliJ
+* Apertar Ctrl, Ctrl e gradle bootRun
 
 ## Migration steps
 * Usuário com acesso a infra criada
