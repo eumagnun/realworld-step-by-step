@@ -115,9 +115,7 @@ select * from articles
 * Rodar processo em background: https://udgwebdev.github.io/dicas-de-terminal-processos-em-background/
 * Listar usuarios linux: less /etc/passwd
 
-* NOTE IDE
-* Tudo funciona mais facil com o IntelliJ
-* Apertar Ctrl, Ctrl e gradle bootRun
+* NOTA: Caso necessário modificar o backend a sugestão é usar o IntelliJ -> Apertar Ctrl, Ctrl e gradle bootRun
 
 ## Migration steps
 * Usuário com acesso a infra criada
