@@ -111,7 +111,9 @@ sudo apt install git
 https://github.com/eumagnun/realworld-terraform-scripts
 ````
 ## 3 Let's go to the migration
-### 3.1 Estabilish a peering beetween both projects.
+### 3.1 Estabilish communication beetween both projects.
+* Warning:  To execute this step on the real world we can use a VPN or Interconnect. In this demo, to keep things simple,  we are going to establish a peering.
+* 
 * On cloud project execute (on peer-project attribute use your PROJECT-ID)
 ````
 gcloud compute networks peerings create demo-env-cloud-peering \
