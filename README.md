@@ -99,7 +99,7 @@ sudo apt install git
 * execute the script build-frontend.sh
 
 
-## Extra notes:
+## Utils:
 * Working with private github repos: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 
 * Installing Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
