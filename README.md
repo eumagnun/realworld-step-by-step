@@ -1,42 +1,23 @@
-# CREATE ON PREMISES STEPS SEQUENCE
-* Create the infra with terraform scripts
+# Create on-premises env step-by-step
+
+## 1 Create google cloud resources with terraform
+* Create the infra with terraform this scripts (folder: on-prem-env)
 ````
 https://github.com/eumagnun/realworld-terraform-scripts
 ````
-* create a service account with role "instanceAdmin" and associate it to build-vm
-* Install the posrgresql database on database-vm following the step-by-step on this readme
-* clone this repo on build-vm (use this procedure https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
-* execute the next steps as described bellow:
+## 2 - Install de Datatabase on database-vm:
 
-## Máquina de build
-### Requisitos build backend
-* baixar e configurar propriedades do back de acordo com o ambiente: https://github.com/eumagnun/realworld-notes/blob/main/application.properties
-* executar script mount_backend_build_env.sh após criação da máquina
-
-### Requisitos build frontend
-* executar script mount_frontend_build_env.sh após criação da máquina
-
-## Máquina execução backend
-* instalar JRE: sudo apt install default-jre -y após criação da máquina
-
-## Máquina execução frontend
-* instalar ngynx: sudo apt install nginx -y após criação da máquina
-
-## Máquina Database:
-* Instalar Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
-* Porta padrão: port:5432
-
-* Instalar Postgresql
+* Access the database-vm and execute the following steps:
 ````
 sudo apt update
 sudo apt install postgresql postgresql-contrib -y
 ````
-* Iniciar serviço
+* start service
 ````
 sudo systemctl start postgresql.service
 ````
 
-* criar database
+* create database
 ````
 sudo -u postgres createdb applicationdb
 ````
@@ -64,12 +45,12 @@ host    all           	all        	0.0.0.0/0            	md5
 sudo systemctl restart postgresql.service
 ````
 
-* #consultar status
+* #query service status
 ````
 sudo systemctl status postgresql.service
 ````
 
-* #logar postgress
+* #login postgress
 ````
 sudo -u postgres psql
 ````
@@ -82,50 +63,54 @@ ALTER USER postgres PASSWORD 'postgres'
 ````
 \password postgres
 ````
-* #listar bancos
+* #list databases
 ```
 \l
 ```
-* conectar em um banco de dados
+* connect to a database
 ````
 \c postgres
 ````
 
-* listar tabelas
+* list tables
 ````
 select * from information_schema.tables
 
 ````
 
-* listar artigos cadastrados
+* list articles
 ````
 select * from articles
 
 ````
 
+## 3 - Do the setup on build-vm
+* create a service account with role "instanceAdmin" and associate it to build-vm
+* clone this repo on build-vm 
+* execute the script mount_backend_build_env.sh
+* execute the script mount_frontend_build_env.sh
 
-
-* caso necessário: remover postgresql
-* https://kb.objectrocket.com/postgresql/how-to-completely-uninstall-postgresql-757
+## 4 - Deploy the application through build-vm
+* execute the script build-backend.sh
+* execute the script build-frontend.sh
 
 ## Extra: 
-* CloudRouter vai ser necessário
-* Máquina do backend vai precisar de wget: sudo apt install wget
-* Máquina do backend vai precisar de unzip: sudo ap install unzip
 * Rodar processo em background: https://udgwebdev.github.io/dicas-de-terminal-processos-em-background/
 * Listar usuarios linux: less /etc/passwd
 
 * NOTA: Caso necessário modificar o backend a sugestão é usar o IntelliJ -> Apertar Ctrl, Ctrl e gradle bootRun
 
-## Migration steps
-* Usuário com acesso a infra criada
-* criar vpc
-* criar firewall
-* criar bucket em modo server
-* criar server
-* criar cloudsql
-* criar vpn
-* testar conectividade entre recursos
-* migrar frontend e testar
-* migrar backend com migrate for vm e testar
-* migrar database com serviço de migração e testar
+## Info extra:
+* Working with private github repos: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
+
+* Installing Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
+
+* Default Postgres port:5432
+
+* If necessary remove Postgresql: https://kb.objectrocket.com/postgresql/how-to-completely-uninstall-postgresql-757
+
+* List Unix users: less /etc/passwd
+
+* Run process on background: https://udgwebdev.github.io/dicas-de-terminal-processos-em-background/
+
+* Run the backend porject on IntelliJ: Press Ctrl, Ctrl and gradle bootRun
