@@ -130,7 +130,14 @@ gcloud compute networks peerings create demo-env-on-prem-peering \
     --peer-network mynetwork1 
 ````
 
-### Utils:
+### 3.2 Create a firewall rule on on-prem project to enable the communication
+````
+name fw-peering-migration
+target: all instances in the network
+source ipv4 ranges: 10.2.0.0/24
+protocols and ports: allow all
+````
+## Utils:
 * Working with private github repos: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 
 * Installing Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
