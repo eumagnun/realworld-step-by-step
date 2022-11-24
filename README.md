@@ -137,6 +137,11 @@ target: all instances in the network
 source ipv4 ranges: 10.2.0.0/24
 protocols and ports: allow all
 ````
+### 3.3 Access Migrate to Virtual Machines page in the Google Cloud console
+* https://console.cloud.google.com/compute/mfce
+
+
+
 ## Utils:
 * Working with private github repos: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 
