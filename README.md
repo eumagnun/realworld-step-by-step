@@ -1,6 +1,6 @@
 # Migration Demo
 
-##Main Goal
+## Main Goal
 * Migrate a simulated onpremises 3 layer application to a Google Cloud env using MIgrate to VMs e Database Migration Service
 ![alt migration-demo-strategy](https://raw.githubusercontent.com/eumagnun/realworld-step-by-step/main/migration-demo-strategy.png)
 
