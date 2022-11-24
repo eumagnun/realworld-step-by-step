@@ -94,13 +94,8 @@ select * from articles
 * execute the script build-backend.sh
 * execute the script build-frontend.sh
 
-## Extra: 
-* Rodar processo em background: https://udgwebdev.github.io/dicas-de-terminal-processos-em-background/
-* Listar usuarios linux: less /etc/passwd
 
-* NOTA: Caso necessário modificar o backend a sugestão é usar o IntelliJ -> Apertar Ctrl, Ctrl e gradle bootRun
-
-## Info extra:
+## Extra notes:
 * Working with private github repos: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 
 * Installing Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
