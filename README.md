@@ -1,11 +1,17 @@
-# Create on-premises env step-by-step
+# Migration Demo
 
-## 1 Create google cloud resources with terraform
+##Main Goal
+* Migrate a simulated onpremises 3 layer application to a Google Cloud env using MIgrate to VMs e Database Migration Service
+![alt text]([http://url/to/img.png](https://raw.githubusercontent.com/eumagnun/realworld-step-by-step/main/migration-demo-strategy.png))
+
+## on-premises env creation step-by-step
+
+### 1 Create google cloud resources with terraform
 * Create the infra with terraform this scripts (folder: on-prem-env)
 ````
 https://github.com/eumagnun/realworld-terraform-scripts
 ````
-## 2 - Install de Datatabase on database-vm:
+### 2 - Install de Datatabase on database-vm:
 
 * Access the database-vm and execute the following steps:
 ````
@@ -84,7 +90,7 @@ select * from articles
 
 ````
 
-## 3 - Do the setup on build-vm
+### 3 - Do the setup on build-vm
 * create a service account with role "instanceAdmin" and associate it to build-vm
 * install git on build-vm
 ````
@@ -94,12 +100,12 @@ sudo apt install git
 * execute the script mount_backend_build_env.sh
 * execute the script mount_frontend_build_env.sh
 
-## 4 - Deploy the application through build-vm
+### 4 - Deploy the application through build-vm
 * execute the script build-backend.sh
 * execute the script build-frontend.sh
 
 
-## Utils:
+### Utils:
 * Working with private github repos: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
 
 * Installing Postgres: https://www.digitalocean.com/community/tutorials/how-to-install-postgresql-on-ubuntu-20-04-quickstart
