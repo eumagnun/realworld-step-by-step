@@ -7,7 +7,7 @@
 ## 1 On-premises env creation step-by-step
 
 ### 1.1 Create google cloud resources with terraform
-* Create the infra with terraform this scripts (folder: on-prem-env)
+* Create the infra with terraform scripts (folder: on-prem-env)
 ````
 https://github.com/eumagnun/realworld-terraform-scripts
 ````
@@ -104,6 +104,29 @@ sudo apt install git
 * execute the script build-backend.sh
 * execute the script build-frontend.sh
 
+## 2 Cloud env creation
+### 2.1 Create a peering configuration on your cloud-project
+* Create the infra with terraform  scripts (folder: cloud-env)
+````
+https://github.com/eumagnun/realworld-terraform-scripts
+````
+## 3 Let's go to the migration
+### 3.1 Estabilish a peering beetween both projects.
+* On cloud project execute (on peer-project attribute use your PROJECT-ID)
+````
+gcloud compute networks peerings create demo-env-cloud-peering \
+    --network=mynetwork1 \
+    --peer-project civic-replica-369511 \
+    --peer-network mynetwork 
+````
+
+* On on-prem project execute (on peer-project attribute use your PROJECT-ID)
+````
+gcloud compute networks peerings create demo-env-on-prem-peering \
+    --network=mynetwork \
+    --peer-project nodal-shift-369517 \
+    --peer-network mynetwork1 
+````
 
 ### Utils:
 * Working with private github repos: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key)
