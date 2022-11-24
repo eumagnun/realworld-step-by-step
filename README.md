@@ -86,6 +86,10 @@ select * from articles
 
 ## 3 - Do the setup on build-vm
 * create a service account with role "instanceAdmin" and associate it to build-vm
+* install git on build-vm
+````
+sudo apt install git
+````
 * clone this repo on build-vm 
 * execute the script mount_backend_build_env.sh
 * execute the script mount_frontend_build_env.sh
