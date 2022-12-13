@@ -1,11 +1,14 @@
  #! /bin/bash
  
+echo ":::::::: changing current dir"
+cd realworld-step-by-step
+ 
 echo "::::::::installing tools"
 apt update
 apt install git -y
 
-echo ":::::::: generating new password"
-VAR_DATABASE_PASSWORD=date +%s | sha256sum | base64 | head -c 32 ; echo
+echo "::::::::database new password"
+VAR_DATABASE_PASSWORD=$(date +%s | sha256sum | base64 | head -c 32 ; echo)
 echo "**************************************************"
 echo $VAR_DATABASE_PASSWORD
 echo "**************************************************"
@@ -23,12 +26,6 @@ sudo -u postgres createdb applicationdb
 
 echo ":::::::: changing default user passwor"
 sudo -u postgres psql -U postgres -d postgres -c "alter user postgres with password '${VAR_DATABASE_PASSWORD}';"
-
-echo "::::::::cloning config project"
-git clone https://github.com/eumagnun/realworld-step-by-step.git
-
-echo ":::::::: changing current dir"
-cd realworld-step-by-step
 
 echo "::::::::replacing config files to enable external connectivity"
 cp postgres-conf-files/* /etc/postgresql/13/main/
