@@ -6,9 +6,9 @@ apt install openssl -y
 
 echo ":::::::: generating new password"
 VAR_DATABASE_PASSWORD=openssl rand -base64 32
-echo "**********************"*************************"***"
+echo "**************************************************"
 echo $VAR_DATABASE_PASSWORD
-echo "************************"*************************"*"
+echo "**************************************************"
 
 echo "::::::::installing database Postgres: Start"
 
