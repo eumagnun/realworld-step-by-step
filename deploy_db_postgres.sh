@@ -1,9 +1,14 @@
-echo ":::::::: changing current dir"
-cd realworld-step-by-step
- 
+#! /bin/bash
+
 echo "::::::::installing tools"
 apt update
 apt install git -y
+
+echo "::::::::cloning config project"
+git clone https://github.com/eumagnun/realworld-step-by-step.git
+
+echo ":::::::: changing current dir"
+cd realworld-step-by-step
 
 echo "::::::::database new password"
 VAR_DATABASE_PASSWORD=$(date +%s | sha256sum | base64 | head -c 32 ; echo)
