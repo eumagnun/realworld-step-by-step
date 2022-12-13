@@ -1,3 +1,5 @@
+ #! /bin/bash
+ 
 echo "::::::::installing tools"
 apt update
 apt install git -y
