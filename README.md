@@ -13,62 +13,9 @@ https://github.com/eumagnun/realworld-terraform-scripts
 ````
 ### 1.2 - Install de Datatabase on database-vm:
 
-* Access the database-vm and execute the following steps:
-````
-sudo apt update
-sudo apt install postgresql postgresql-contrib -y
-````
-* start service
-````
-sudo systemctl start postgresql.service
-````
+* Access the database-vm and execute the script: deploy_db_postgres.sh
 
-* create database
-````
-sudo -u postgres createdb applicationdb
-````
-* #edit files bellow to enable external connectivity
-
-* #file 1: 
-````
-sudo nano /etc/postgresql/13/main/postgresql.conf
-````
-````
-listen_addresses = '*'
-````
-
-* #file 2: 
-````
-sudo nano /etc/postgresql/13/main/pg_hba.conf
-````
-````
-# IPv4 local connections:
-host    all           	all        	0.0.0.0/0            	md5
-````
-
-* #restart the database
-````
-sudo systemctl restart postgresql.service
-````
-
-* #query service status
-````
-sudo systemctl status postgresql.service
-````
-
-* #login postgress
-````
-sudo -u postgres psql
-````
-
-* #change password [option1]:
-```
-ALTER USER postgres PASSWORD 'postgres'
-```
-* #change password [option2]:
-````
-\password postgres
-````
+* Some examples of commands do validate the database
 * #list databases
 ```
 \l
