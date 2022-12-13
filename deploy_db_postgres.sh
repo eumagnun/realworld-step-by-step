@@ -1,17 +1,16 @@
 
-VAR_DATABASE_PASSWORD=$1
-
-if [ "$1" = "" ];then
-  echo "Please define the DATABASE_PASSWORD"
-  echo "example: sudo sh deploy-db-postgres.sh mypassword" 
- exit 0
-fi
-
-echo "::::::::installing database Postgres: Start"
-
-echo "::::::::installing git"
+echo "::::::::installing tools"
 apt update
 apt install git -y
+apt install openssl -y
+
+echo ":::::::: generating new password"
+VAR_DATABASE_PASSWORD=openssl rand -base64 32
+echo "**********************"*************************"***"
+echo $VAR_DATABASE_PASSWORD
+echo "************************"*************************"*"
+
+echo "::::::::installing database Postgres: Start"
 
 echo "::::::::installing database"
 apt install postgresql postgresql-contrib -y
