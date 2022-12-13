@@ -1,5 +1,3 @@
- #! /bin/bash
- 
 echo ":::::::: changing current dir"
 cd realworld-step-by-step
  
