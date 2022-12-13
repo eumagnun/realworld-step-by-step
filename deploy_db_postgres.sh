@@ -1,11 +1,9 @@
-
 echo "::::::::installing tools"
 apt update
 apt install git -y
-apt install openssl -y
 
 echo ":::::::: generating new password"
-VAR_DATABASE_PASSWORD=openssl rand -base64 32
+VAR_DATABASE_PASSWORD=date +%s | sha256sum | base64 | head -c 32 ; echo
 echo "**************************************************"
 echo $VAR_DATABASE_PASSWORD
 echo "**************************************************"
